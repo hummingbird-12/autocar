@@ -60,12 +60,16 @@ int main(void) {
 
     while (true) {
         mat_image_org_color = imread(IMAGE_PATH);
-        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY); // color to gray conversion
+        // Color to gray conversion
+        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY);
+        // Edge detection from grayscale
         mat_image_canny_edge = canny_edge_detection(mat_image_org_gray);
 
+        // Hough lines detection
         vector < Vec4i > linesP;
         HoughLinesP(mat_image_canny_edge, linesP, 1, CV_PI / 180, 70, 30, 40);
 
+        // Draw lines on original image
         for (int i = 0; i < (int) linesP.size(); i++) {
             const Vec4i& L = linesP[i];
             line(mat_image_org_color, Point(L[0], L[1]), Point(L[2], L[3]), RED, 3, LINE_AA);

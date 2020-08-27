@@ -50,8 +50,10 @@ int main(void) {
     moveWindow(BINARY_NAME, 10, 500);
 
     while (true) {
-        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY); // color to gray conversion
-        threshold(mat_image_org_gray, mat_image_binary, 200, 255, THRESH_BINARY); // gray to binary conversion
+        // Color to gray conversion
+        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY);
+        // Gray to binary conversion
+        threshold(mat_image_org_gray, mat_image_binary, 200, 255, THRESH_BINARY);
 
         if (mat_image_org_color.empty()) {
             cout << "Empty image.\n";

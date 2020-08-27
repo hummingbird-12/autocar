@@ -59,7 +59,9 @@ int main(void) {
     moveWindow(CANNY_NAME, 10, 500);
 
     while (true) {
-        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY); // color to gray conversion
+        // Color to gray conversion
+        cvtColor(mat_image_org_color, mat_image_org_gray, CV_RGB2GRAY);
+        // Edge detection from grayscale
         mat_image_canny_edge = canny_edge_detection(mat_image_org_gray);
 
         if (mat_image_org_color.empty()) {

@@ -10,6 +10,7 @@
 #define SERIAL_DEV "/dev/ttyACM0"
 #define BAUD_RATE 115200
 
+// `getch()` implementation for Raspberry Pi
 int getch(void) {
     int ch;
     struct termios buf;
@@ -41,8 +42,9 @@ int main(void) {
     }
 
     while (true) {
-        test = getch();
+        test = getch(); // Get character input from console
 
+        // Write character to serial (read by Arduino)
         if (test == 'A') {
             printf("Input A : %c\n", test);
             serialPutchar(fd, test);
@@ -54,6 +56,7 @@ int main(void) {
 
         delay(50);
 
+        // Get output from serial (writtern by Arduino)
         while (serialDataAvail(fd)) {
             receive_char = serialGetchar(fd);
             printf("Received char : %d %c\n", receive_char, receive_char);

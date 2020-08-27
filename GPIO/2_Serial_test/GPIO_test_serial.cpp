@@ -25,9 +25,11 @@ int main(void) {
 
     test = 'A';
     while (true) {
+        // Write to serial
         serialPutchar(fd, test);
         delay(1);
 
+        // Read from serial
         if (serialDataAvail(fd)) {
             receive_char = serialGetchar(fd);
             printf("Received char : %d %c\n", receive_char, receive_char);
