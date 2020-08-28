@@ -5,7 +5,6 @@ void setup() {
   Serial.begin(115200);
 }
 
-
 void loop() {
   unsigned long duration;
   float duration_msec;
@@ -14,7 +13,7 @@ void loop() {
 
   Serial.print("Pulse width = ");
   Serial.print(duration_msec);
-  Serial.println("msec");
+  Serial.println(" msec");
   delay(500);
 }
 
