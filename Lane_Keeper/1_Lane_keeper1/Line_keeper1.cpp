@@ -395,12 +395,6 @@ Mat draw_guide_lines(Mat img) {
         Point(IMG_WIDTH / 2, ASSIST_BASE_LINE + guide_height1 * 1.5),
         WHITE, 2, 0);
     
-    // Line center
-    // line(result_img,
-    //     Point(line_center, ASSIST_BASE_LINE - guide_height1 * 1.2),
-    //     Point(line_center, ASSIST_BASE_LINE + guide_height1 * 1.2),
-    //     RED, 2, 0);
-    
     return result_img;
 }
 
