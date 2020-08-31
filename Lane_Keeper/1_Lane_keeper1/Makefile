@@ -1,7 +1,7 @@
 CC = g++
 
 CFLAGS = -Wall -O2
-SRCS = Line_keeper1.cpp
+SRCS = Lane_keeper1.cpp
 
 PROG = test
 
